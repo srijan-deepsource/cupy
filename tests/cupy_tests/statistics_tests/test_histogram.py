@@ -548,7 +548,7 @@ class TestHistogramdd(unittest.TestCase):
             weights = None
         y, bin_edges = xp.histogramdd(x, bins=bins, range=self.range,
                                       weights=weights, density=self.density)
-        return [y, ] + [e for e in bin_edges]
+        return [y, ] + list(bin_edges)
 
 
 @testing.gpu

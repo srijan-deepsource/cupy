@@ -1041,7 +1041,7 @@ def center_of_mass(input, labels=None, index=None):
         # tuple of 0-dimensional cupy arrays
         return tuple(res for res in results)
     # list of cupy coordinate arrays
-    return [v for v in cupy.stack(results, axis=-1)]
+    return list(cupy.stack(results, axis=-1))
 
 
 def labeled_comprehension(

@@ -49,7 +49,7 @@ def set_cufft_gpus(gpus):
     global _devices
 
     if isinstance(gpus, int):
-        devs = [i for i in range(gpus)]
+        devs = list(range(gpus))
     elif isinstance(gpus, list):
         devs = gpus
     else:
