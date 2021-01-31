@@ -614,7 +614,7 @@ def einsum(*operands, **kwargs):
     }
     if optimize is False:
         path = [tuple(range(len(operands)))]
-    elif len(optimize) and (optimize[0] == 'einsum_path'):
+    elif optimize and (optimize[0] == 'einsum_path'):
         path = optimize[1:]
     else:
         try:
