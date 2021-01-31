@@ -130,7 +130,7 @@ def _init_nd_and_axes(x, axes):
     # See documentation in scipy.fft._helper._init_nd_shape_and_axes
     # except shape argument is always None and doesn't return new shape
     axes = internal._normalize_axis_indices(axes, x.ndim, sort_axes=False)
-    if not len(axes):
+    if not axes:
         raise ValueError('when provided, axes cannot be empty')
     if any(x.shape[ax] < 1 for ax in axes):
         raise ValueError('invalid number of data points specified')

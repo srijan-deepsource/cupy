@@ -223,7 +223,7 @@ def _fft(a, s, axes, norm, direction, value_type='C2C', overwrite_x=False,
             dim = a.ndim
         else:
             dim = len(s)
-        axes = [i for i in range(-dim, 0)]
+        axes = list(range(-dim, 0))
     else:
         axes = tuple(axes)
     if not axes:
@@ -290,9 +290,8 @@ def _nd_plan_is_possible(axes_sorted, ndim):
     # Axes must be contiguous and the first or last axis must be in the axes.
     return (0 < len(axes_sorted) <= 3
             and (0 in axes_sorted or (ndim - 1) in axes_sorted)
-            and all([
-                (axes_sorted[n + 1] - axes_sorted[n]) == 1
-                for n in range(len(axes_sorted) - 1)]))
+            and all((axes_sorted[n + 1] - axes_sorted[n]) == 1
+                    for n in range(len(axes_sorted) - 1)))
 
 
 def _get_cufft_plan_nd(
