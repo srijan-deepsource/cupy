@@ -223,7 +223,7 @@ def _fft(a, s, axes, norm, direction, value_type='C2C', overwrite_x=False,
             dim = a.ndim
         else:
             dim = len(s)
-        axes = [i for i in range(-dim, 0)]
+        axes = list(range(-dim, 0))
     else:
         axes = tuple(axes)
     if not axes:
