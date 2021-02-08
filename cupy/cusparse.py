@@ -1300,7 +1300,7 @@ def spmv(a, x, y=None, alpha=1, beta=0, transa=False):
             raise TypeError(msg)
         a = aT
         transa = not transa
-    if not isinstance(a, (cupyx.scipy.sparse.csr_matrix, 
+    if not isinstance(a, (cupyx.scipy.sparse.csr_matrix,
                           cupyx.scipy.sparse.coo_matrix)):
         raise TypeError('unsupported type (actual: {})'.format(type(a)))
     a_shape = a.shape if not transa else a.shape[::-1]
@@ -1372,7 +1372,7 @@ def spmm(a, b, c=None, alpha=1, beta=0, transa=False, transb=False):
             raise TypeError(msg)
         a = aT
         transa = not transa
-    if not isinstance(a, (cupyx.scipy.sparse.csr_matrix, 
+    if not isinstance(a, (cupyx.scipy.sparse.csr_matrix,
                           cupyx.scipy.sparse.coo_matrix)):
         raise TypeError('unsupported type (actual: {})'.format(type(a)))
     a_shape = a.shape if not transa else a.shape[::-1]
